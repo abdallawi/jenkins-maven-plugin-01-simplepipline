@@ -1,4 +1,4 @@
-pipeline{
+pipeline {
     agent any
 
     stages{
@@ -7,11 +7,13 @@ pipeline{
                git branch: 'master', url: 'https://github.com/abdallawi/jenkins-maven-plugin-01-simplepipline.git'
             }            
         }
-         stage("Clean Up"){
+
+        stage("Clean Up"){
             steps{
                echo "Hello from jenkinsfile"
             }            
         }
+
         stage("Compile it "){
             steps{
                
@@ -22,9 +24,10 @@ pipeline{
                
             }            
         }
-         stage("Package (i.e. Generale the deployable JAR)"){
+        stage("Package (i.e. Generale the deployable JAR)"){
             steps{
                
             }            
         }
     }
+}
