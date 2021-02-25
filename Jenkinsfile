@@ -1,7 +1,7 @@
 pipeline {
     agent any
 
-    stages{
+    stages {
         stage("Checkout Code from SCM"){
             steps{
                git branch: 'master', url: 'https://github.com/abdallawi/jenkins-maven-plugin-01-simplepipline.git'
@@ -10,23 +10,25 @@ pipeline {
 
         stage("Clean Up"){
             steps{
-               echo "Hello from jenkinsfile"
+               sh 'mvn clean ';
             }            
         }
 
         stage("Compile it "){
             steps{
-               
+               sh 'mvn compile ';
             }            
         }
+
         stage("Unit Tests "){
             steps{
-               
+               sh 'mvn test ';
             }            
         }
+
         stage("Package (i.e. Generale the deployable JAR)"){
             steps{
-               
+               sh 'mvn package ';
             }            
         }
     }
